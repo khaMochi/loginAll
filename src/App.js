@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import { LoginMenu ,RegisterMenu} from './components/index';
 import './App.css';
-
+import './style/main.scss'
+import {Routes,Route} from "react-router-dom"
+import may from './assets/img/may.png'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App backgroundSite">
+      <img src={may} className='may1'/>
+      <img src={may} className='may2'/>
+      <img src={may} className='may3'/>
+
+      <div className='card'>
+       <Routes>
+<Route path='/login' element={<LoginMenu/>}/>
+<Route path='/register' element={<RegisterMenu/>}/>
+       </Routes>
+       </div>
     </div>
   );
 }
 
 export default App;
+
