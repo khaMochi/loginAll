@@ -17,7 +17,7 @@ function App() {
   const [forgotPass,setForgotPass] = useState(0);
   const [popUpLogSuccess,setPopUpLogSuccess] = useState(0);
   const [popUpLogRegister,setPopUpLogRegister] = useState(0);
- const [accept,setAccept]=useState(0);
+ const [accept,setAccept] = useState(0);
   useEffect(()=>{
    let check = WebAccpet.map((web)=>{
       if(link==web){
@@ -37,20 +37,20 @@ function App() {
   return (
  <Context.Provider value = {{setPopUpLogSuccess,setPopUpLogRegister}}>
     <div className="App backgroundSite">
-      <img src={may} className='may1'/>
-      <img src={may} className='may2'/>
-      <img src={may} className='may3'/>
+      <img src = {may} className= 'may1'/>
+      <img src = {may} className='may2'/>
+      <img src = {may} className='may3'/>
 
       <div className='card'>
        <Routes>
-          <Route path='/login' element={<LoginMenu setForgotPass={setForgotPass} /> }/>
-          <Route path='/register' element={<RegisterMenu/>}/>
-          <Route path='*' element={<RouteNotFound text='Trang này hiện không tồn tại'/>}/>
+          <Route path = '/login' element = {<LoginMenu setForgotPass= {setForgotPass} /> }/>
+          <Route path = '/register' element = {<RegisterMenu/>}/>
+          <Route path = '*' element = {<RouteNotFound text='Trang này hiện không tồn tại'/>}/>
          
        </Routes>
        </div>
-       {forgotPass?<ForgotPass setForgotPass={setForgotPass} />:''}
-   {popUpLogSuccess?<PopupLogSuccess setPopUpLogSuccess={setPopUpLogSuccess}/>:''}
+       {forgotPass?<ForgotPass setForgotPass = {setForgotPass} />:''}
+   {popUpLogSuccess?<PopupLogSuccess setPopUpLogSuccess= {setPopUpLogSuccess}/>:''}
     {popUpLogRegister?<PopupRegister/>:''}
     </div>
  </Context.Provider>

@@ -1,7 +1,7 @@
-import {email,password,username} from './validateFunciton'
-const Email=email;
-const Password=password;
-const Username=username;
+import {email, password, username} from './validateFunciton'
+const Email = email;
+const Password = password;
+const Username = username;
 
 
 function HandelValidate(text,Check){
@@ -17,7 +17,7 @@ export default function Reducer(state,actionOfInput){
 const {action,payload} = actionOfInput;
     switch(action){
   case 'usernameWrite':{
-    const erro=HandelValidate(payload,'Username');
+    const erro = HandelValidate(payload,'Username');
 
   return {
     ...state,
@@ -26,7 +26,7 @@ const {action,payload} = actionOfInput;
   }
   }
   case 'emailWrite':{
-    const erro=HandelValidate(payload,'Email');
+    const erro = HandelValidate(payload,'Email');
     return {
         ...state,
         email:payload,
@@ -35,7 +35,7 @@ const {action,payload} = actionOfInput;
   }
   case 'passwordWrite':{
     
-    const erro=HandelValidate(payload,'Password');
+    const erro = HandelValidate(payload,'Password');
 
     return {
         ...state,
@@ -46,14 +46,21 @@ const {action,payload} = actionOfInput;
   }
   
   case 'ErroEmail':{
-    const erro=HandelValidate({ErroEmail:'true'},'Email');
+    
+    const erro = HandelValidate({ErroEmail:payload},'Email');
 
     return {
       ...state,
       ThrowErroEmail:erro?erro:'',
     }
   }
-
+ case 'ErroPassword':{
+  const erro = HandelValidate({ErroEmail:payload},'Email');
+return {
+  ...state,
+  ThrowErroPassword:erro?erro:'',
+}
+ }
  default :{
     return state;
  }

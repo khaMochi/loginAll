@@ -1,41 +1,42 @@
 import imgMochi from '../assets/img/Mochi-meomeo2-01 1.png'
-import {useState,useReducer, useContext} from 'react';
+import {useState, useReducer, useContext} from 'react';
 import Reducer from './ReducerRedisterEmail';
 import FormInputOfEmailRegister from './FormInputOfEmailRegister';
 import {Context} from '../App';
 import RedirectWeb from '../HandelALL/RedirectWeb'
 import handelDataSignup from '../HandelALL/handelDataSignup';
-const initial={
+export const initial={
   username:'',
   email:'',
   password:'',
   ThrowErroUsername:'',
   ThrowErroEmail:'',
   ThrowErroPassword:'',
-  ErroEmail:''
+  ErroEmail:'',
+  ErroPassword:'',
 }
 
 
 
 function RegisterEmail({setPageCurrent}){
- const [data,dispatch]=useReducer(Reducer,initial)
-const [ready,setReady]=useState(0);
+ const [data, dispatch]=useReducer(Reducer, initial)
+const [ready, setReady]=useState(0);
 const {setPopUpLogRegister} = useContext(Context);
 
   function SubmitForm(e) {
    
     if (ready) {
-     handelDataSignup(data).then(response=>{
+     handelDataSignup(data)
+     .then(response => {
      if (response.data.code==0) {
-   dispatch({
-    action:'ErroEmail', payload:'', })
-      }
-     else {
-      localStorage.setItem('user_token',response.data.user.user_token)
+   dispatch( {
+    action:'ErroEmail', payload:'Email mà bạn nhập đã tồn tại', })
+      } else {
+      localStorage.setItem('user_token', response.data.user.user_token);
       setPopUpLogRegister(1);
       RedirectWeb();
         }
-      })  
+      } )  
   }
   else {  e.preventDefault(); }
                                    }  
@@ -47,7 +48,7 @@ const {setPopUpLogRegister} = useContext(Context);
   <img className='imgRegister' src={imgMochi} />
         <div className='registerMethod'>
 <form className='formRegister'>
-<FormInputOfEmailRegister Ready={[ready,setReady]} reducer={[data,dispatch]}/>
+<FormInputOfEmailRegister Ready={[ready, setReady]} reducer={[data, dispatch]}/>
 
       <button onClick={()=>{SubmitForm()}} type='button' className={
      (ready?'submitButtonForm--good':' submitButtonForm--invalid')}>Tạo tài khoản</button>

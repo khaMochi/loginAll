@@ -5,21 +5,13 @@ function FormInputOfEmailRegister({Ready,reducer}){
  const [controll,setControll]=useState(1);
  const [ready,setReady]=Ready;
  useEffect(()=>{
-   const {ThrowErroEmail,ThrowErroPassword,ThrowErroUsername}=state;
- if (!(ThrowErroEmail||ThrowErroPassword||ThrowErroUsername))
-  {
-   const {username,password,email}=state;
-    if(username&&password&&email){
-        setReady(1);
-    }
-    else if(ready!==0){
-        setReady(0);
-    }
-   }
-   else if(ready!==0){
+  const {ThrowErroEmail, ThrowErroPassword, password, email}=state;
+  if (!(ThrowErroEmail || ThrowErroPassword)&&password&&email) {
+    setReady(1);
+  }
+  else if ( ready != 0 ){
     setReady(0);
-
-   }
+  }
  },[state])
     return (
         <>

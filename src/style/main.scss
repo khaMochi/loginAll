@@ -1,4 +1,5 @@
 .App{
+    position: fixed;
     width: 100%;
     min-height:647px;
     height: 100%;
@@ -20,20 +21,20 @@
         position:relative;
         background-color: #FFCB08;
         font-weight: 700;
-        font-size:1.7rem;
+        font-size:2rem;
         height: 40px;
         line-height:38px;
         border-radius:0 0 8px 8px;
         &>i{
             position:absolute;
-            left:10px;
+            right:10px;
             top:50%;
             transform: translateY(-56%);
             width: 28px;
             height:28px;
-    padding-top:7px;
+    padding-top:5px;
     cursor: pointer;
-    padding-left:0px;
+    padding-left:2px;
             border-radius: 50%;
             background-color: white;
             color:#FFCB08;
