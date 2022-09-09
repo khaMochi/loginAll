@@ -11,5 +11,5 @@ function RouteNotFound({text}){
     </div>
     </>
     )
-}
+ }
 export default RouteNotFound;

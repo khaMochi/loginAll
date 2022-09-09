@@ -8,7 +8,7 @@ function email(text){
     return '* Email sai định dạng, bạn kiểm tra lại nhé';
     }
     return ''
-}
+ }
 function password (text) {
     if (text?.ErroPassword) { return '* '+text.ErroPassword; }
 
@@ -17,7 +17,7 @@ function password (text) {
     }
 
     return ''
-}
+  }
 function username(text) {
     text.trim();
     if ( /[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]+/.test(text) ) {
@@ -30,6 +30,6 @@ function username(text) {
    return '* Tên dài tối đa 15 ký tự';  }
     
         return ''
-}
+ }
 
 export {email, password, username};

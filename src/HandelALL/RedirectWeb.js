@@ -11,6 +11,6 @@ function RedirectWeb() {
     else {
         return false;
     }
-}
+ }
 
 export default RedirectWeb;

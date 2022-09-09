@@ -5,7 +5,7 @@ import FormInputOfEmailRegister from './FormInputOfEmailRegister';
 import {Context} from '../App';
 import RedirectWeb from '../HandelALL/RedirectWeb'
 import handelDataSignup from '../HandelALL/handelDataSignup';
-export const initial={
+export const initial = {
   username:'',
   email:'',
   password:'',
@@ -14,13 +14,13 @@ export const initial={
   ThrowErroPassword:'',
   ErroEmail:'',
   ErroPassword:'',
-}
+ }
 
 
 
 function RegisterEmail({setPageCurrent}){
- const [data, dispatch]=useReducer(Reducer, initial)
-const [ready, setReady]=useState(0);
+ const [data, dispatch] = useReducer(Reducer, initial)
+const [ready, setReady] = useState(0);
 const {setPopUpLogRegister} = useContext(Context);
 
   function SubmitForm(e) {
@@ -55,5 +55,5 @@ const {setPopUpLogRegister} = useContext(Context);
  </form>
          </div>
     </> )
-}
+ }
 export default RegisterEmail;

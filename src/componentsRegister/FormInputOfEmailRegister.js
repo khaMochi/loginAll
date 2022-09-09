@@ -1,6 +1,6 @@
 import HandelShow from '../componentsLog/reuse/Show_Hidden-text';
 import {useEffect, useState} from 'react';
-function FormInputOfEmailRegister({Ready,reducer}){
+function FormInputOfEmailRegister({Ready,reducer}) {
  const [state, dispatch] = reducer;
  const [controll, setControll] = useState(1);
  const [ready, setReady] = Ready;
@@ -8,10 +8,10 @@ function FormInputOfEmailRegister({Ready,reducer}){
   const {ThrowErroEmail, ThrowErroPassword, password, email}=state;
   if (!(ThrowErroEmail || ThrowErroPassword)&&password&&email) {
     setReady(1);
-  }
+   }
   else if ( ready != 0 ){
     setReady(0);
-  }
+   }
  },[state])
     return (
         <>
@@ -47,7 +47,7 @@ function FormInputOfEmailRegister({Ready,reducer}){
          <input value = {state.password} 
          type = {controll?'password':'text'}
      onChange = {(e)=>{
-      let value=e.target.value;
+      let value = e.target.value;
       dispatch({
         action:'passwordWrite',
         payload:value })}}
@@ -60,5 +60,5 @@ function FormInputOfEmailRegister({Ready,reducer}){
         
         </>
     )
-}
+ }
 export default FormInputOfEmailRegister;

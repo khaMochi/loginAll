@@ -1,4 +1,4 @@
-function handelDataLoginAngSingupFbGg(data,provider='google'){
+function handelDataLoginAngSingupFbGg(data,provider='google') {
     const provider_id=data.user.providerData[0].uid;
     const email =data.user.email;
     const display_name=data.user.displayName;
@@ -14,5 +14,5 @@ function handelDataLoginAngSingupFbGg(data,provider='google'){
     
 
     return {Bodydata,headers};
-}
+ }
 export default handelDataLoginAngSingupFbGg;

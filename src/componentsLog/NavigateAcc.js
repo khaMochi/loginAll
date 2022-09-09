@@ -10,15 +10,15 @@ function NavigateAccout({check}) {
    useEffect(()=>{
     return changeUrl()
    },[])
-  if (check=='login') {
-  return <div className='changeForm'>
+  if (check == 'login') {
+  return <div className = 'changeForm'>
   <b>Chưa có tài khoản?</b>
-  <Link to='/register' >Tạo tài khoản học ngay</Link></div>
+  <Link to = '/register' >Tạo tài khoản học ngay</Link></div>
                        }
   else  {
     return <div className='changeForm'>
     <b>Bạn đã có tài khoản rồi?</b>
-    <Link to='/login' >Đăng nhập ngay</Link></div>
+    <Link to = '/login' >Đăng nhập ngay</Link></div>
     
        }
   }

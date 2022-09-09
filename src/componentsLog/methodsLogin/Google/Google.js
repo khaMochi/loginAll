@@ -28,8 +28,8 @@ const signInWithGoogle=async (setPopUpLogSuccess,setPopUpLogRegister)=>{
     console.log(err);
 
    }
-}
-function Google({text}){
+ }
+function Google({text}) {
   const {setPopUpLogSuccess,setPopUpLogRegister} = useContext(Context);
 
 let valueButton = text?'Tạo tài khoản với':'Đăng nhập với';
@@ -38,5 +38,5 @@ let valueButton = text?'Tạo tài khoản với':'Đăng nhập với';
     }}> 
    <i className = "fa-brands fa-google-plus-g"></i> {valueButton}
    <i className = "fa-brands fa-google-plus-g"></i></button>)
-}
+ }
 export default Google;

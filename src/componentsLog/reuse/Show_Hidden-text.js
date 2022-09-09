@@ -1,4 +1,4 @@
-function HandelShow({controllEl}){
+function HandelShow({controllEl}) {
     const [controll,setControll]=controllEl;
 let text;
     if(controll){
@@ -8,5 +8,5 @@ text='Hiển thị'
         text='Ẩn'
     }
     return <button  onClick={()=>{setControll(pre=>!pre)}} className='showORhidden' type='button'>{text}</button>
-}
+ }
 export default HandelShow;
