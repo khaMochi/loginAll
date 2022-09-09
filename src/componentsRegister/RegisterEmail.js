@@ -28,7 +28,7 @@ const {setPopUpLogRegister} = useContext(Context);
     if (ready) {
      handelDataSignup(data)
      .then(response => {
-     if (response.data.code==0) {
+     if (response.data.code == 0) {
    dispatch( {
     action:'ErroEmail', payload:'Email mà bạn nhập đã tồn tại', })
       } else {
@@ -42,15 +42,15 @@ const {setPopUpLogRegister} = useContext(Context);
                                    }  
   return (
     <>
-      <h1 className='header'>
-      <i onClick={e=>setPageCurrent(1)} className="fa-solid fa-angle-left"></i>Tạo tài khoản mới</h1>
+      <h1 className = 'header'>
+      <i onClick = {e=>setPageCurrent(1)} className="fa-solid fa-angle-left"></i>Tạo tài khoản mới</h1>
         <h2 className='title-Mochi title-Mochi--register'>Cùng tạo 1 tài khoản mochi nào</h2>
-  <img className='imgRegister' src={imgMochi} />
+  <img className = 'imgRegister' src={imgMochi} />
         <div className='registerMethod'>
-<form className='formRegister'>
-<FormInputOfEmailRegister Ready={[ready, setReady]} reducer={[data, dispatch]}/>
+<form className = 'formRegister'>
+<FormInputOfEmailRegister Ready={[ready, setReady]} reducer = {[data, dispatch]}/>
 
-      <button onClick={()=>{SubmitForm()}} type='button' className={
+      <button onClick = {()=>{SubmitForm()}} type = 'button' className = {
      (ready?'submitButtonForm--good':' submitButtonForm--invalid')}>Tạo tài khoản</button>
  </form>
          </div>

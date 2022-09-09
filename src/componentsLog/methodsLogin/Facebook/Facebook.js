@@ -8,11 +8,11 @@ import {Context} from '../../../App';
 import {useContext} from 'react';
  async function signWithFacebook(setPopUpLogSuccess,setPopUpLogRegister){
  try{
-    let data=await signInWithPopup(auth,providerFacebook);
-    const need=handelDataLoginAngSingupFbGg(data,'facebook');
-    const response=await axios.post(ApiLoginOrRegisterFbGg,{...need.Bodydata},{headers:need.headers})
+    let data = await signInWithPopup(auth,providerFacebook);
+    const need = handelDataLoginAngSingupFbGg(data,'facebook');
+    const response = await axios.post(ApiLoginOrRegisterFbGg,{...need.Bodydata},{headers:need.headers})
     localStorage.setItem('user_token',response.data.user.user_token)
-    if (window.location.pathname=='/register') {
+    if (window.location.pathname == '/register') {
       setPopUpLogRegister(1);
     }
     else{
@@ -32,7 +32,7 @@ import {useContext} from 'react';
     let valueButton=text?'Tạo tài khoản với Facebook':'Đăng nhập với Facebook';
 
 
-    return (<button onClick={()=>{signWithFacebook(setPopUpLogSuccess,setPopUpLogRegister);}} className='buttonMethod--facebook'>
+    return (<button onClick={()=>{signWithFacebook(setPopUpLogSuccess,setPopUpLogRegister);}} className = 'buttonMethod--facebook'>
         <i className="fa-brands fa-facebook-f"></i>
         {valueButton}</button>)
  }

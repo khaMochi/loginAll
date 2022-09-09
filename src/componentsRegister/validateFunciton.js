@@ -4,7 +4,7 @@ function email(text){
     text.trim();
 
     if (!(/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/.test(text))
-    &&text.length!=0) {
+    &&text.length != 0) {
     return '* Email sai định dạng, bạn kiểm tra lại nhé';
     }
     return ''
@@ -20,7 +20,7 @@ function password (text) {
 }
 function username(text) {
     text.trim();
-    if ((/[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]+/.test(text))) {
+    if ( /[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|]+/.test(text) ) {
         return '* Tên không được chứa ký tự đặc biệt';
     }
     else if (text.length<6&&text.length>0) {

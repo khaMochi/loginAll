@@ -1,8 +1,6 @@
 import NavigateAccout from './NavigateAcc';
 import {RenderMethodLogin,FormLogin} from './index';
 import Mochimeow1 from '../assets/img/Mochimeow 1.png';
-import {link,pathname} from '../App'
-import {useEffect} from 'react';
 import {redirect} from '../App'
 function LoginMenu({setForgotPass}){
 

@@ -7,9 +7,9 @@ import RedirectWeb from '../../HandelALL/RedirectWeb';
 import Reducer from '../../componentsRegister/ReducerRedisterEmail'
 import {initial} from '../../componentsRegister/RegisterEmail'
 function FormLogin() {
-const [state,dispatch]=useReducer(Reducer,initial);
+const [state, dispatch]=useReducer(Reducer,initial);
 const [ready, setReady]=useState(0);
-const [controll,setControll]=useState(1);
+const [controll, setControll]=useState(1);
 const {setPopUpLogSuccess}=useContext(Context);
 useEffect(()=>{
 const {ThrowErroEmail, ThrowErroPassword, password, email}=state;
@@ -27,7 +27,7 @@ else if ( ready !== 0 ){
   if (ready) {
    emailDataLogin(state.email,state.password)
    .then(response=>{
-    const data=response.data;
+    const data = response.data;
     if (data.code === 0) {
       
 
@@ -49,39 +49,39 @@ else if ( ready !== 0 ){
      }
    } 
 
-    return <form className='formLogin'>
+    return <form className = 'formLogin'>
      {/* 'email' */}
-     <div className='backgroundUseName'>
-      <input value={state.email} 
+     <div className = 'backgroundUseName'>
+      <input value = {state.email} 
      onChange={(e)=>{
       let value=e.target.value;
       dispatch({
         action:'emailWrite',
         payload:value })}}
-      className={'inputType ' + (state.ThrowErroEmail?'inputType--invalid':'')} type='text' placeholder="Nhập chính xác email của bạn "
+      className={'inputType ' + (state.ThrowErroEmail?'inputType--invalid':'')} type = 'text' placeholder = "Nhập chính xác email của bạn "
       />
-       <p className='messageErroInput'>{state.ThrowErroEmail}</p>
+       <p className = 'messageErroInput'>{state.ThrowErroEmail}</p>
    </div>
 
     {/* 'password' */}
 
-         <div className='backgroundPassword'>
+         <div className = 'backgroundPassword'>
         
-         <input value={state.password} 
-         type={controll?'password':'text'}
-     onChange={(e)=>{
-      let value=e.target.value;
+         <input value = {state.password} 
+         type = {controll?'password':'text'}
+     onChange = {(e)=>{
+      let value = e.target.value;
       dispatch({
         action:'passwordWrite',
         payload:value })}}
-      className={'inputType ' + (state.ThrowErroPassword?'inputType--invalid':'')}  placeholder="Tạo mật khẩu (dễ nhớ một chút nhé ^^)"
+      className = {'inputType ' + (state.ThrowErroPassword?'inputType--invalid':'')}  placeholder = "Tạo mật khẩu (dễ nhớ một chút nhé ^^)"
       />
-       <p className='messageErroInput'>{state.ThrowErroPassword}</p>
-  <HandelShow controllEl={[controll,setControll]}/>
+       <p className = 'messageErroInput'>{state.ThrowErroPassword}</p>
+  <HandelShow controllEl = {[controll,setControll]}/>
    </div>
         
 
-      <button onClick={SubmitForm} type='button' className={
+      <button onClick={SubmitForm} type = 'button' className = {
   (ready?'submitButtonForm--good':' submitButtonForm--invalid')}>Đăng nhập</button>
     </form>
 }

@@ -11,12 +11,12 @@ export const link= urlParams?.get('redirect');
 export const pathname=urlParams?.get('pathname');
  export const redirect=link+pathname;
 
-const WebAccpet=['http://localhost:3000'];
+const WebAccpet = ['http://localhost:3000'];
 
 function App() {
-  const [forgotPass,setForgotPass] = useState(0);
-  const [popUpLogSuccess,setPopUpLogSuccess] = useState(0);
-  const [popUpLogRegister,setPopUpLogRegister] = useState(0);
+  const [forgotPass, setForgotPass] = useState(0);
+  const [popUpLogSuccess, setPopUpLogSuccess] = useState(0);
+  const [popUpLogRegister, setPopUpLogRegister] = useState(0);
  const [accept,setAccept] = useState(0);
   useEffect(()=>{
    let check = WebAccpet.map((web)=>{
@@ -30,10 +30,7 @@ function App() {
 }
 ,[])
 
-  if(!accept){
-
-   return <RouteNotFound text='Vui lòng kiểm tra lại đường dẫn'/>
-  }
+  if (!accept) {  return <RouteNotFound text='Vui lòng kiểm tra lại đường dẫn'/> }
   return (
  <Context.Provider value = {{setPopUpLogSuccess,setPopUpLogRegister}}>
     <div className="App backgroundSite">

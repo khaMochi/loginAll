@@ -9,11 +9,11 @@ import {Context} from '../../../App';
 import {useContext} from 'react'
 const signInWithGoogle=async (setPopUpLogSuccess,setPopUpLogRegister)=>{
   try{
-  let data=  await signInWithPopup(auth,providerGoogle);
+  let data =  await signInWithPopup(auth,providerGoogle);
     const need = handelDataLoginAngSingupFbGg(data);
-   const response=await axios.post(ApiLoginOrRegisterFbGg,{...need.Bodydata},{headers:need.headers})
+   const response = await axios.post(ApiLoginOrRegisterFbGg,{...need.Bodydata},{headers:need.headers})
    localStorage.setItem('user_token',response.data.user.user_token)
-   if (window.location.pathname=='/register') {
+   if (window.location.pathname == '/register') {
     setPopUpLogRegister(1);
    }
    else{
@@ -30,13 +30,13 @@ const signInWithGoogle=async (setPopUpLogSuccess,setPopUpLogRegister)=>{
    }
 }
 function Google({text}){
-  const {setPopUpLogSuccess,setPopUpLogRegister} =useContext(Context);
+  const {setPopUpLogSuccess,setPopUpLogRegister} = useContext(Context);
 
-let valueButton=text?'Tạo tài khoản với':'Đăng nhập với';
-    return (<button className='buttonMethod--google' onClick={()=>{
+let valueButton = text?'Tạo tài khoản với':'Đăng nhập với';
+    return (<button className = 'buttonMethod--google' onClick={()=>{
       signInWithGoogle(setPopUpLogSuccess,setPopUpLogRegister);
     }}> 
-   <i className="fa-brands fa-google-plus-g"></i> {valueButton}
-   <i className="fa-brands fa-google-plus-g"></i></button>)
+   <i className = "fa-brands fa-google-plus-g"></i> {valueButton}
+   <i className = "fa-brands fa-google-plus-g"></i></button>)
 }
 export default Google;

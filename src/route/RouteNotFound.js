@@ -3,11 +3,11 @@ function RouteNotFound({text}){
 
     return (
     <>
-    <div className='throwErroURL'>
-    <img style={{marginTop:'40px',
+    <div className = 'throwErroURL'>
+      <img style = {{marginTop:'40px',
        marginLeft:'44px'
-           }} src={img}/>
-    <h1 style={{margin:'40px  10px'}}>{text}</h1>
+           }} src = {img}/>
+      <h1 style = {{margin:'40px  10px'}}>{text}</h1>
     </div>
     </>
     )
