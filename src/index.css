@@ -2,9 +2,12 @@
 margin: 0;
 padding:0;
 box-sizing: border-box;
+font-family: 'Quicksand', sans-serif;
+
 }
 html{
   font-size:62.25%;
+  text-rendering:optimizedLegibility;
 }
 html,body,#root{
   width: 100%;

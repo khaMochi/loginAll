@@ -7,6 +7,6 @@ text='Hiển thị'
     else{
         text='Ẩn'
     }
-    return <button onClick={()=>{setControll(pre=>!pre)}} className='showORhidden' type='button'>{text}</button>
+    return <button  onClick={()=>{setControll(pre=>!pre)}} className='showORhidden' type='button'>{text}</button>
 }
 export default HandelShow;
