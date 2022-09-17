@@ -1,0 +1,342 @@
+.button-box {
+    position: relative;
+    width: 90%;
+    max-width: 368px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+
+    &__item {
+        font-size: 20px;
+        transition: all 0.1s ease;
+        width: 100%;
+        height: 49px;
+        border-radius: 100px;
+        border: none;
+        color: white;
+        font-weight: 700;
+        line-height: 30px;
+        letter-spacing: 0.0128571em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor: pointer;
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        font-family: 'Quicksand', sans-serif;
+        margin: 0 auto;
+
+        svg {
+            position: absolute;
+            left: 10%;
+            width: 30px;
+            height: 30px;
+        }
+
+        &:active {
+            transform: translateY(5px);
+        }
+    }
+
+    .button-box__shadow {
+        width: 100%;
+        height: 46px;
+        border-radius: 100px;
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        margin: 0 auto;
+    }
+
+}
+
+
+
+@media screen and (min-width: 1708px) and (max-width: 1920px) {
+    .loginPage {
+        .button-box {
+            width: 368px;
+            height: 56px;
+
+            &__item {
+                height: 100%;
+
+            }
+
+            &__shadow {
+                height: 100%;
+            }
+        }
+
+
+        .button-box__shadow {}
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .loginPage {
+        .button-box {
+            width: 328px;
+            height: 40px;
+
+            &__item {
+                height: 100%;
+
+                svg {
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+
+            &__shadow {
+                height: 100%;
+            }
+        }
+
+        .button-box__shadow {
+            width: 100%;
+            height: 40px;
+            border-radius: 100px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            margin: 0 auto;
+        }
+
+    }
+
+    .loginPage>.button-box:nth-child(3) {
+
+        .button-box__item {
+            font-size: 18px;
+        }
+
+        svg {
+            transform: translateX(-6px);
+            height: 30px;
+            width: 30px;
+        }
+
+    }
+
+    .loginPage>.button-box:nth-child(4) {
+
+        .button-box__item {
+            font-size: 18px;
+            padding-left: 16px;
+        }
+
+        svg {
+            transform: translateX(-6px);
+            height: 30px;
+            width: 30px;
+        }
+
+    }
+
+    .loginPage>.button-box:nth-child(5) {
+
+        .button-box__item {
+            font-size: 18px;
+
+            svg {
+                transform: translate(-4px, -2px);
+                height: 30px;
+                width: 30px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1270px) {
+    .loginPage {
+        .button-box {
+            width: 288px;
+            height: 30px;
+
+            &__item {
+                height: 100%;
+            }
+
+            &__shadow {
+                height: 100%;
+            }
+        }
+
+        .button-box__shadow {
+            width: 100%;
+            height: 30px;
+            border-radius: 100px;
+            position: absolute;
+            top: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            margin: 0 auto;
+        }
+
+    }
+
+    .loginPage>.button-box:nth-child(3) {
+
+        .button-box__item {
+            font-size: 16px;
+        }
+
+        svg {
+            transform: translateX(-6px);
+            height: 25px;
+            width: 25px;
+        }
+
+    }
+
+    .loginPage>.button-box:nth-child(4) {
+
+        .button-box__item {
+            font-size: 16px;
+        }
+
+        svg {
+            transform: translateX(-6px);
+            height: 25px;
+            width: 25px;
+        }
+
+    }
+
+    .loginPage>.button-box:nth-child(5) {
+
+        .button-box__item {
+            font-size: 16px;
+
+            svg {
+                transform: translate(-4px, -2px);
+                height: 25px;
+                width: 25px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .loginPage {
+        .button-box {
+            width: 228px;
+            height: 30px;
+
+            &__item {
+                height: 100%;
+            }
+
+            &__shadow {
+                height: 100%;
+            }
+        }
+
+        .button-box__shadow {
+            width: 100%;
+            height: 30px;
+            border-radius: 100px;
+            position: absolute;
+            top: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            margin: 0 auto;
+        }
+
+    }
+
+    .loginPage>.button-box:nth-child(3) {
+
+        .button-box__item {
+            font-size: 14px;
+        }
+
+        svg {
+            transform: translateX(-6px);
+            height: 20px;
+            width: 20px;
+        }
+
+    }
+
+    .loginPage>.button-box:nth-child(4) {
+
+        .button-box__item {
+            font-size: 14px;
+        }
+
+        svg {
+            transform: translateX(-6px);
+            height: 20px;
+            width: 20px;
+        }
+
+    }
+
+    .loginPage>.button-box:nth-child(5) {
+
+        .button-box__item {
+            font-size: 14px;
+
+            svg {
+                transform: translate(-4px, -2px);
+                height: 20px;
+                width: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .loginPage {
+        .button-box {
+            width: 208px;
+            height: 30px;
+
+            &__item {
+                height: 100%;
+            }
+
+            &__shadow {
+                height: 100%;
+            }
+        }
+
+
+
+    }
+
+    .loginPage>.button-box:nth-child(3) {
+
+        .button-box__item {
+            font-size: 12px;
+        }
+
+    }
+
+    .loginPage>.button-box:nth-child(4) {
+
+        .button-box__item {
+            font-size: 12px;
+        }
+
+
+    }
+
+    .loginPage>.button-box:nth-child(5) {
+
+        .button-box__item {
+            font-size: 12px;
+
+        }
+    }
+}

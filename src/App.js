@@ -1,61 +1,82 @@
-import { LoginMenu ,RegisterMenu,RouteNotFound,RedirectWeb,PopupLogSuccess,PopupRegister,ForgotPass} from './componentsLog/index';
-import './App.css';
-import './style/main.scss'
-import {Routes,Route} from "react-router-dom"
-import may from './assets/img/may.png'
-import {useState,createContext,useEffect} from 'react';
-export const Context = createContext();
+import {Routes, Route} from 'react-router-dom';
+import RouteLogin from './routes/RouteLogin';
+import RouteSignup from './routes/RotueSignup';
+import NotFound from './routes/NotFound';
+import {useReducer, createContext} from 'react';
+import MessageForgot from './pages/LoginPage/Popup/MessageForgot';
+import MessageSuccess from './pages/LoginPage/Popup/MessageSuccess';
+import {getCookie} from './utils/cookies';
+import redirectWeb from './component/redirectWeb'
+import urlAccepted from './utils/url-accepted';
+
 const urlParams = new URLSearchParams(window.location.search);
+export const link = urlParams?.get('redirect');
+export const redirect = link;
+const referrer = document.referrer;
+const initialPopup = {forgot: false, success: false};
 
-export const link= urlParams?.get('redirect');
-export const pathname=urlParams?.get('pathname');
- export const redirect=link+pathname;
+function ReducerPopup(state, action) {
+    switch (action.type) {
+        case 'forgot': { //message forgot
+            const change = (state.forgot);
+            return {
+                ...state,
+                forgot: !change,
+            }
+        }
+        case 'successLogin': {//message success login
+            const change = (state.success);
+            return {
+                ...state,
+                success: !change,
+            }
+        }
+        default : {
+            return state;
+        }
+    }
+}
 
-const WebAccpet = ['http://localhost:3000'];
+export const ContextIndex = createContext();
 
 function App() {
-  const [forgotPass, setForgotPass] = useState(0);
-  const [popUpLogSuccess, setPopUpLogSuccess] = useState(0);
-  const [popUpLogRegister, setPopUpLogRegister] = useState(0);
- const [accept,setAccept] = useState(0);
-  useEffect(()=>{
-   let check = WebAccpet.map((web)=>{
-      if(link==web){
-          setAccept(1);
-          return true; }
- })
-     if (check[0]) {
-      if ( RedirectWeb() ) { setPopUpLogSuccess(1) }
-     }
-}
-,[])
+    const [popup, dispatch] = useReducer(ReducerPopup, initialPopup);
+    const dev = process.env.REACT_APP_DEV;
+    let check;
+    if (dev === "true") {
+        check = true;
+    } else {
+        const item = urlAccepted.filter((web) => (web.domain === referrer) && (web.redirect === redirect));
+        check = item.length === 1;
+    }
+    if (!check) {
+        return <NotFound/>;
+    } else if (getCookie('user_token')) {
+        redirectWeb();
+        return (
+            <ContextIndex.Provider value={[popup, dispatch]}>
+                <MessageSuccess/>
+            </ContextIndex.Provider>
+        )
 
-  if (!accept) {  return <RouteNotFound text='Vui lòng kiểm tra lại đường dẫn'/> }
-  return (
- <Context.Provider value = {{setPopUpLogSuccess,setPopUpLogRegister}}>
-    <div className="App backgroundSite">
-      <img src = {may} className= 'may1'/>
-      <img src = {may} className='may2'/>
-      <img src = {may} className='may3'/>
-
-      <div className='card'>
-       <Routes>
-          <Route path = '/login' element = {<LoginMenu setForgotPass= {setForgotPass} /> }/>
-          <Route path = '/register' element = {<RegisterMenu/>}/>
-          <Route path = '*' element = {<RouteNotFound text='Trang này hiện không tồn tại'/>}/>
-         
-       </Routes>
-       </div>
-       {forgotPass?<ForgotPass setForgotPass = {setForgotPass} />:''}
-   {popUpLogSuccess?<PopupLogSuccess setPopUpLogSuccess= {setPopUpLogSuccess}/>:''}
-    {popUpLogRegister?<PopupRegister/>:''}
-    </div>
- </Context.Provider>
- 
-  );
+    }
 
 
+    return (
+        <ContextIndex.Provider value={[popup, dispatch]}>
+            {/* message area */}
+            {popup.forgot ? <MessageForgot/> : ''}
+            {popup.success ? <MessageSuccess/> : ''}
+            {/* message area */}
+            <div>
+                <Routes>
+                    <Route path='/login' element={<RouteLogin/>}/>
+                    <Route path='/signup' element={<RouteSignup/>}/>
+                    <Route path='*' element={<NotFound/>}/>
+                </Routes>
+            </div>
+        </ContextIndex.Provider>
+    );
 }
 
 export default App;
-
